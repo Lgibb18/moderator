@@ -167,7 +167,6 @@ async def slash(interaction:discord.Interaction,
 #client.run('MTA3MDU5ODY5NTI5NDM0NTIyNg.G_HpVK.aAGPvHgxA7qUdY2doAoJ48SOzJIufcVgTPfrxo') # подполье
 #client.run('MTA3MDAzNDkwMjQwMzI2NDU2Mg.Gt8iHQ.AF3XXYVIEPOdIbP7VIfH8PcgSl9rdcuK0Q9N-U') # мой
 #token = input('token: ')
-
 f = open("token.txt", "r")
 
 
