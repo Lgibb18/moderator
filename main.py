@@ -72,7 +72,7 @@ async def slash(interaction:discord.Interaction):
         g = git.cmd.Git("moderator")
         g.pull()
         #os.execl(sys.executable, sys.executable, *sys.argv)
-        subprocess.call("moderator/start.bat")
+        subprocess.call("start.bat")
         
 
 @tree.command(name = 'mute')
