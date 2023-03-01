@@ -172,5 +172,5 @@ f = open("token.txt", "r")
 
 
 
-client.run(f.read) #мф
+client.run(f.read()) #мф
 f.close()
