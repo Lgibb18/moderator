@@ -7,6 +7,9 @@ from typing import Optional
 from discord.app_commands import Choice
 import datetime
 from discord.utils import get
+import git
+import os
+import sys
 class aclient(discord.Client):
     def __init__(self):
         super().__init__(intents = discord.Intents.default())
@@ -61,6 +64,14 @@ async def slash(interaction:discord.Interaction,
                 _text: str):
     if(interaction.user.get_role(721335143364821003)):
         await _user.send(_text)
+
+@tree.command(name = 'restart')
+async def slash(interaction:discord.Interaction):
+    if(interaction.user.get_role(891255842924531762)):
+        g = git.cmd.Git("moderator")
+        g.pull()
+        os.execl(sys.executable, sys.executable, *sys.argv)
+        
 
 @tree.command(name = 'mute')
 @app_commands.describe(_user='Человек')
