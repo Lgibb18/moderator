@@ -10,6 +10,7 @@ from discord.utils import get
 import git
 import os
 import sys
+import subprocess
 class aclient(discord.Client):
     def __init__(self):
         super().__init__(intents = discord.Intents.default())
@@ -70,7 +71,8 @@ async def slash(interaction:discord.Interaction):
     if(interaction.user.get_role(891255842924531762)):
         g = git.cmd.Git("moderator")
         g.pull()
-        os.execl(sys.executable, sys.executable, *sys.argv)
+        #os.execl(sys.executable, sys.executable, *sys.argv)
+        subprocess.call("start.bat")
         
 
 @tree.command(name = 'mute')
