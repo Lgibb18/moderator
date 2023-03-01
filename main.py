@@ -20,7 +20,7 @@ class aclient(discord.Client):
         if not self.synced:
             await tree.sync()
             self.synced = True
-        print(f"We have logged in as {self.user}.")
+        print(f"We have sslogged in as {self.user}.")
 
 client = aclient()
 tree = app_commands.CommandTree(client)
