@@ -173,3 +173,4 @@ f = open("token.txt", "r")
 
 
 client.run(f.read) #мф
+f.close()
