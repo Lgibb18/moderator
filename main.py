@@ -23,7 +23,7 @@ client = aclient()
 tree = app_commands.CommandTree(client)
 
 intents = discord.Intents.all()
-#intents.message_content = True
+##intents.message_content = True
 #intents.members = True  # Subscribe to the privileged members intent.
 bot = commands.Bot(intents=intents, command_prefix='') 
 
