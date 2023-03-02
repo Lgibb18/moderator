@@ -88,9 +88,9 @@ async def slash(interaction:discord.Interaction):
 @app_commands.describe(_num='текст')
 async def slash(interaction:discord.Interaction,
                 _num: int):
-    if(interaction.user.get_role(721335143364821003)):
+    if(not interaction.user.get_role(721335143364821003)):
         print(mutes_id)
-        mutes_id[str(interaction.user)] = _num
+        mutes_id[str(interaction.user.id)] = _num
         print(mutes_id)
         g = open("mutes.json",'w')
         print(json.dumps(mutes_id, sort_keys=True))
@@ -130,7 +130,7 @@ async def slash(interaction:discord.Interaction,
     if(interaction.user.get_role(721335143364821003)):
         message = f"{_user.mention} получил "
         
-        mutes_id[str(interaction.user)] = mutes_id[str(interaction.user)]+1
+        mutes_id[str(interaction.user.id)] = mutes_id[str(interaction.user.id)]+1
         g = open("mutes.json",'w')
         print(json.dumps(mutes_id, sort_keys=True))
         g.write(json.dumps(mutes_id, sort_keys=True))
