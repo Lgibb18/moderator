@@ -23,6 +23,7 @@ class aclient(discord.Client):
             await tree.sync()
             self.synced = True
         print(f"We have logged in as {self.user}.")
+        bot.get_guild(720950193700208671).get_channel(891255796564905994).send("Бот запущен")
 
 client = aclient()
 tree = app_commands.CommandTree(client)
