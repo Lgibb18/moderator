@@ -129,7 +129,7 @@ async def slash(interaction:discord.Interaction):
         #str += f"{user.mention} "
         embed.add_field(name="", value=f"{user.mention}: {sss[line]}", inline=False)
         b+=1
-    await interaction.response.send_message(embed=embed)
+    await interaction.followup.send(embed=embed)
     g.close()
 
 @tree.command(name = 'mute')
