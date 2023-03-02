@@ -88,7 +88,7 @@ async def slash(interaction:discord.Interaction):
 @app_commands.describe(_num='текст')
 async def slash(interaction:discord.Interaction,
                 _num: int):
-    if(not interaction.user.get_role(721335143364821003)):
+    if(interaction.user.get_role(721335143364821003)):
         print(mutes_id)
         mutes_id[str(interaction.user)] = _num
         print(mutes_id)
