@@ -23,7 +23,7 @@ class aclient(discord.Client):
             await tree.sync()
             self.synced = True
         print(f"We have logged in as {self.user}.")
-        bot.fetch_channel(891255796564905994).send("Бот перезагружен")
+        await bot.fetch_channel(891255796564905994).send("Бот перезагружен")
 
 client = aclient()
 tree = app_commands.CommandTree(client)
