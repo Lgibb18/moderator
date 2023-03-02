@@ -274,6 +274,7 @@ async def slash(interaction:discord.Interaction):
     rules = json.loads(s.read())
     s.close()
     interaction.response.send_message(rules)
+
 f = open("token.txt", "r")
 client.run(f.read()) #мф
 f.close()
