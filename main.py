@@ -83,9 +83,9 @@ async def slash(interaction:discord.Interaction):
 
         g = git.cmd.Git(Repo.working_tree_dir)
         g.pull()
-        #os.execl(sys.executable, sys.executable, *sys.argv)
+        os.execl(sys.executable, sys.executable, *sys.argv)
         #subprocess.call("start.bat")
-        subprocess.run("start.bat")
+        #subprocess.run("start.bat")
 
 @tree.command(name = 'setmutes')
 @app_commands.describe(_num='текст')
