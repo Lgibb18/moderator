@@ -89,7 +89,10 @@ async def slash(interaction:discord.Interaction):
         g = git.cmd.Git(Repo.working_tree_dir)
         g.pull()
         embed=discord.Embed(title="Бот перезапускается", description="Бот обновлён. Он будет работать в скором времени.", color=0x1ad1ff)
-        await interaction.response.send_message(embed=embed)
+        #await interaction.response.send_message(embed=embed)
+        await interaction.response.defer()
+        asyncio.sleep()
+        await interaction.followup.send(embed=embed)
         await asyncio.sleep(5)
         os.execl(sys.executable, sys.executable, *sys.argv)
         
