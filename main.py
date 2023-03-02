@@ -78,7 +78,10 @@ async def slash(interaction:discord.Interaction,
 @tree.command(name = 'restart')
 async def slash(interaction:discord.Interaction):
     if(interaction.user.get_role(891255842924531762)):
-        g = git.cmd.Git("moderator")
+        import git 
+        from git import Repo
+
+        g = git.cmd.Git(Repo.rorepo.working_tree_dir)
         g.pull()
         #os.execl(sys.executable, sys.executable, *sys.argv)
         #subprocess.call("start.bat")
