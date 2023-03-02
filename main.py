@@ -114,6 +114,7 @@ async def slash(interaction:discord.Interaction,
 
 @tree.command(name='leaderboard')
 async def slash(interaction:discord.Interaction):
+    await interaction.response.defer()
     g = open("mutes.json",'r')
     
     sss = json.loads(g.read())
