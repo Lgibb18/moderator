@@ -121,20 +121,23 @@ async def slash(interaction:discord.Interaction):
 @app_commands.describe(_time='Время')
 @app_commands.describe(_reason='Причина')
 @app_commands.describe(_role='добавлять роль мут-1,2,3,4')
+@app_commands.describe(_inlb='добавлять роль мут-1,2,3,4')
 async def slash(interaction:discord.Interaction,
                 _user: discord.Member,
                 _time: str,
                 _reason: str,
-                _role: Optional[bool] = True
+                _role: Optional[bool] = True,
+                _inlb: Optional[bool] = True
                 ):
     if(interaction.user.get_role(721335143364821003)):
         message = f"{_user.mention} получил "
         
-        mutes_id[str(interaction.user.id)] = mutes_id[str(interaction.user.id)]+1
-        g = open("mutes.json",'w')
-        print(json.dumps(mutes_id, sort_keys=True))
-        g.write(json.dumps(mutes_id, sort_keys=True))
-        g.close()
+        if _inlb:
+            mutes_id[str(interaction.user.id)] = mutes_id[str(interaction.user.id)]+1
+            g = open("mutes.json",'w')
+            print(json.dumps(mutes_id, sort_keys=True))
+            g.write(json.dumps(mutes_id, sort_keys=True))
+            g.close()
 
         #время 
         t = False
