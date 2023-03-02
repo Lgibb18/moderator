@@ -250,7 +250,7 @@ async def slash(interaction:discord.Interaction,
             #str += f"{user.mention} "
             #embed.add_field(name="", value=f"{user.mention}: {sss[line]}", inline=False)
             b+=1
-        embed=discord.Embed(title="Правило", description=rules[b], color=0x1ad1ff)
+        embed=discord.Embed(title="Правило", description=rules[line], color=0x1ad1ff)
         await _user.send(embed=embed)
         #await asyncio.sleep(int(timee))
         #await _user.remove_roles(role)
