@@ -243,7 +243,7 @@ async def slash(interaction:discord.Interaction,
         s.close()
         b = 0
         for line in rules.keys():
-            print(list(s)[b])
+            #print(list(s)[b])
             #user = await client.fetch_user(int(list(s)[b]))
             if((_reason.lower()).__contains__(list(rules)[b])):
                 break
