@@ -130,6 +130,12 @@ async def slash(interaction:discord.Interaction,
     if(interaction.user.get_role(721335143364821003)):
         message = f"{_user.mention} получил "
         
+        mutes_id[str(interaction.user)] = mutes_id[str(interaction.user)]+1
+        g = open("mutes.json",'w')
+        print(json.dumps(mutes_id, sort_keys=True))
+        g.write(json.dumps(mutes_id, sort_keys=True))
+        g.close()
+
         #время 
         t = False
         g = 0
