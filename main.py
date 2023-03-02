@@ -114,7 +114,6 @@ async def slash(interaction:discord.Interaction,
 
 @tree.command(name='leaderboard')
 async def slash(interaction:discord.Interaction):
-    await interaction.response.defer()
     g = open("mutes.json",'r')
     
     sss = json.loads(g.read())
@@ -129,7 +128,7 @@ async def slash(interaction:discord.Interaction):
         #str += f"{user.mention} "
         embed.add_field(name="", value=f"{user.mention}: {sss[line]}", inline=False)
         b+=1
-    await interaction.followup.send(embed=embed)
+    await interaction.response.send_message(embed=embed)
     g.close()
 
 @tree.command(name = 'mute')
