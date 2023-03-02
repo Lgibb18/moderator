@@ -23,7 +23,7 @@ class aclient(discord.Client):
             await tree.sync()
             self.synced = True
         print(f"We have logged in as {self.user}.")
-        await bot.fetch_channel(891255796564905994).send("Бот перезагружен")
+        
 
 client = aclient()
 tree = app_commands.CommandTree(client)
@@ -42,6 +42,9 @@ mutes_id = json.loads(g.read())
 print(mutes_id)
 g.close()
 
+@client.event
+async def on_ready():
+   await client.get_channel(891255796564905994).send("Бот активен")
 
 @tree.command(name = 'unmute')
 @app_commands.describe(_user='Человек')
