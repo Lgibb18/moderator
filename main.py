@@ -84,6 +84,7 @@ async def slash(interaction:discord.Interaction):
         g = git.cmd.Git(Repo.working_tree_dir)
         g.pull()
         await interaction.response.send_message("Бот перезапустится в течении 10 секунд")
+        await asyncio.sleep(5)
         os.execl(sys.executable, sys.executable, *sys.argv)
         
         #subprocess.call("start.bat")
