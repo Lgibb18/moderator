@@ -259,7 +259,30 @@ async def slash(interaction:discord.Interaction,
 #token = input('token: ')
 f = open("token.txt", "r")
 
+@tree.command(name = 'addrule')
+@app_commands.describe(_rule='текст')
+@app_commands.describe(_text='текст')
+async def slash(interaction:discord.Interaction,
+                _rule: str,
+                _text: str
+                ):
+    if(interaction.user.get_role(891255842924531762)):
+        s = open("rules.json")
+        rules = json.loads(s.read())
+        s.close()
+        rules[_rule] = _text
+        g = open("rules.json",'w')
+        #print(json.dumps(mutes_id, sort_keys=True))
+        g.write(json.dumps(mutes_id, sort_keys=True))
+        g.close()
 
-
+@tree.command(name = 'rules')
+@app_commands.describe(_rule='текст')
+@app_commands.describe(_text='текст')
+async def slash(interaction:discord.Interaction):
+    s = open("rules.json")
+    rules = json.loads(s.read())
+    s.close()
+    interaction.response.send_message(rules)
 client.run(f.read()) #мф
 f.close()
