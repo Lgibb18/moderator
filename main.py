@@ -186,7 +186,7 @@ async def slash(interaction:discord.Interaction,
         s = s.replace("m", " мин.")
         s = s.replace("h", " ч.")
         s = s.replace("d", " дн.")
-        embed=discord.Embed(description="", color=discord.Color.from_rgb(205,0,0))
+        embed=discord.Embed(description="", color=discord.Color.from_rgb(240,72,72))
         #embed.add_field(name=f"Причина: {_reason}", value=f"{interaction.user.mention}", inline=False)
         embed.set_author(name=f"Участник {_user.name} замучен на {s}", icon_url=_user.avatar)
         embed.add_field(name="Замутил", value=f"{interaction.user.mention}", inline=True)
