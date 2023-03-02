@@ -74,6 +74,7 @@ async def slash(interaction:discord.Interaction,
 @tree.command(name = 'restart')
 async def slash(interaction:discord.Interaction):
     if(interaction.user.get_role(891255842924531762)):
+        await interaction.response.defer()
         import git 
         from git import Repo
 
@@ -81,7 +82,7 @@ async def slash(interaction:discord.Interaction):
         g.pull()
         embed=discord.Embed(title="Бот перезапускается", description="Бот обновлён. Он будет работать в скором времени.", color=0x1ad1ff)
         #await interaction.response.send_message(embed=embed)
-        await interaction.response.defer()
+        
         await asyncio.sleep(0.001)
         await interaction.followup.send(embed=embed)
         await asyncio.sleep(5)
