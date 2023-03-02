@@ -277,8 +277,6 @@ async def slash(interaction:discord.Interaction,
         g.close()
 
 @tree.command(name = 'rules')
-@app_commands.describe(_rule='текст')
-@app_commands.describe(_text='текст')
 async def slash(interaction:discord.Interaction):
     s = open("rules.json")
     rules = json.loads(s.read())
