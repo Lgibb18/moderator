@@ -248,7 +248,7 @@ async def slash(interaction:discord.Interaction,
     else:   
         await interaction.response.send_message("хаха бесправный", ephemeral=True)
 #token = input('token: ')
-f = open("token.txt", "r")
+
 
 @tree.command(name = 'addrule')
 @app_commands.describe(_rule='текст')
@@ -273,5 +273,6 @@ async def slash(interaction:discord.Interaction):
     rules = json.loads(s.read())
     s.close()
     interaction.response.send_message(rules)
+f = open("token.txt", "r")
 client.run(f.read()) #мф
 f.close()
