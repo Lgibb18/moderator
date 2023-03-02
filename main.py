@@ -238,7 +238,7 @@ async def slash(interaction:discord.Interaction,
         embed.set_author(name=f"{_user.name}, вас замутили на {s} на сервере {guild.name}", icon_url=_user.avatar)
         await _user.send(embed=embed)
 
-        s = open("mutes.json")
+        s = open("rules.json")
         rules = json.loads(s.read())
         s.close()
         b = 0
