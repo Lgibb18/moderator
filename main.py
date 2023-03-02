@@ -242,10 +242,10 @@ async def slash(interaction:discord.Interaction,
         rules = json.loads(s.read())
         s.close()
         b = 0
-        for line in s.keys():
+        for line in rules.keys():
             print(list(s)[b])
             #user = await client.fetch_user(int(list(s)[b]))
-            if((_reason.lower()).__contains__(list(s)[b])):
+            if((_reason.lower()).__contains__(list(rules)[b])):
                 break
             #str += f"{user.mention} "
             #embed.add_field(name="", value=f"{user.mention}: {sss[line]}", inline=False)
