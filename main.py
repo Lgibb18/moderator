@@ -11,6 +11,7 @@ import git
 import os
 import sys
 import subprocess
+import json
 class aclient(discord.Client):
     def __init__(self):
         super().__init__(intents = discord.Intents.default())
@@ -32,6 +33,14 @@ intents = discord.Intents.all()
 bot = commands.Bot(intents=intents, command_prefix='') 
 
 mute_roles = [940902121044328468, 944252969577218149, 944252644275392642, 944252655147040818]
+
+
+g = open("mutes.json")
+global mutes_id
+mutes_id = json.loads(g.read())
+print(mutes_id)
+g.close()
+
 
 @tree.command(name = 'unmute')
 @app_commands.describe(_user='Человек')
@@ -74,7 +83,38 @@ async def slash(interaction:discord.Interaction):
         #os.execl(sys.executable, sys.executable, *sys.argv)
         #subprocess.call("start.bat")
         subprocess.run("start.bat")
-        
+
+@tree.command(name = 'setmutes')
+@app_commands.describe(_num='текст')
+async def slash(interaction:discord.Interaction,
+                _num: int):
+    if(not interaction.user.get_role(721335143364821003)):
+        print(mutes_id)
+        mutes_id[str(interaction.user)] = _num
+        print(mutes_id)
+        g = open("mutes.json",'w')
+        print(json.dumps(mutes_id, sort_keys=True))
+        g.write(json.dumps(mutes_id, sort_keys=True))
+        g.close()
+
+@tree.command(name='leaderboard')
+async def slash(interaction:discord.Interaction):
+    g = open("mutes.json",'r')
+    
+    sss = json.loads(g.read())
+    b = 0
+    str = ""
+    embed=discord.Embed(title="Лидерборд модераторов")
+    sss = dict(sorted(sss.items(), key=lambda item: item[1],reverse=True))
+    for line in sss.keys():
+        print(int(list(sss)[b]))
+        user = await client.fetch_user(int(list(sss)[b]))
+        print(user)
+        #str += f"{user.mention} "
+        embed.add_field(name="", value=f"{user.mention}: {sss[line]}", inline=False)
+        b+=1
+    await interaction.response.send_message(embed=embed)
+    g.close()
 
 @tree.command(name = 'mute')
 @app_commands.describe(_user='Человек')
