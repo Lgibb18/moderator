@@ -44,7 +44,8 @@ g.close()
 
 @client.event
 async def on_ready():
-   await client.get_channel(891255796564905994).send("Бот активен")
+   embed=discord.Embed(title="Бот онлайн", description="Бот запущен и может работать.", color=0x1ad1ff)
+   await client.get_channel(891255796564905994).send(embed=embed)
 
 @tree.command(name = 'unmute')
 @app_commands.describe(_user='Человек')
@@ -87,6 +88,7 @@ async def slash(interaction:discord.Interaction):
 
         g = git.cmd.Git(Repo.working_tree_dir)
         g.pull()
+        embed=discord.Embed(title="Бот перезапускается", description="Бот обновлён. Он будет работать в скором времени.", color=0x1ad1ff)
         await interaction.response.send_message("Бот перезапустится в течении 15 секунд")
         await asyncio.sleep(5)
         os.execl(sys.executable, sys.executable, *sys.argv)
