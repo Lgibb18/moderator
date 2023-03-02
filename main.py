@@ -251,7 +251,7 @@ async def slash(interaction:discord.Interaction,
 #token = input('token: ')
 
 
-@tree.command(name = 'addrule')
+@tree.command(name = 'addrules')
 @app_commands.describe(_rule='текст')
 @app_commands.describe(_text='текст')
 async def slash(interaction:discord.Interaction,
