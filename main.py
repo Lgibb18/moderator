@@ -64,7 +64,7 @@ async def slash(interaction:discord.Interaction,
 async def slash(interaction:discord.Interaction,
                 _text: str):
     if(interaction.user.get_role(721335143364821003)):
-        await interaction.channel.send(_text)
+        await interaction.channel.send("dfgsd")
 
 @tree.command(name = 'симфония')
 @app_commands.describe(_user='Человек')
