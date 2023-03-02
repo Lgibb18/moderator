@@ -237,7 +237,21 @@ async def slash(interaction:discord.Interaction,
         await guild.get_channel(846747716348018750).send(embed=embed)
         embed.set_author(name=f"{_user.name}, вас замутили на {s} на сервере {guild.name}", icon_url=_user.avatar)
         await _user.send(embed=embed)
-        
+
+        s = open("mutes.json")
+        rules = json.loads(s.read())
+        s.close()
+        b = 0
+        for line in s.keys():
+            print(list(s)[b])
+            #user = await client.fetch_user(int(list(s)[b]))
+            if((_reason.lower()).__contains__(list(s)[b])):
+                break
+            #str += f"{user.mention} "
+            #embed.add_field(name="", value=f"{user.mention}: {sss[line]}", inline=False)
+            b+=1
+        embed=discord.Embed(title="Правило", description=s[b], color=0x1ad1ff)
+        await _user.send(embed=embed)
         #await asyncio.sleep(int(timee))
         #await _user.remove_roles(role)
     else:   
