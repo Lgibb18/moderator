@@ -91,7 +91,7 @@ async def slash(interaction:discord.Interaction):
         embed=discord.Embed(title="Бот перезапускается", description="Бот обновлён. Он будет работать в скором времени.", color=0x1ad1ff)
         #await interaction.response.send_message(embed=embed)
         await interaction.response.defer()
-        await asyncio.sleep(1)
+        await asyncio.sleep(0.001)
         await interaction.followup.send(embed=embed)
         await asyncio.sleep(5)
         os.execl(sys.executable, sys.executable, *sys.argv)
