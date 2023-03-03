@@ -248,7 +248,7 @@ async def slash(interaction:discord.Interaction,
         #await interaction.response.send_message(embed=embed)
         
         if(not _inlb):
-            embed.set_footer("Не зачислено в лидерборд")
+            embed.set_footer(text="Не зачислено в лидерборд")
         
         await guild.get_channel(724614253079822418).send(embed=embed)
         await guild.get_channel(846747716348018750).send(embed=embed)
