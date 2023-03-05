@@ -44,7 +44,7 @@ g.close()
 
 @client.event
 async def on_ready():
-   embed=discord.Embed(title="Бот онлайн", description="Бот запущен и может работать.2", color=0x1ad1ff)
+   embed=discord.Embed(title="Бот онлайн", description="Бот запущен и может работать.", color=0x1ad1ff)
    await client.get_channel(1080882415666462830).send(embed=embed)
 
 @tree.command(name = 'unmute')
