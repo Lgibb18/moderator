@@ -118,7 +118,7 @@ async def slash(interaction:discord.Interaction):
         user = await client.fetch_user(int(list(sss)[b]))
         print(user)
         #str += f"{user.mention} "
-        embed.add_field(name="", value=f"{user.mention}: {sss[line]}", inline=False)
+        embed.add_field(name="", value=f"{user.mention}: {sss[line]} social credit", inline=False)
         b+=1
     await interaction.response.send_message(embed=embed)
     g.close()
